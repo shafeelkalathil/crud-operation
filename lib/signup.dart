@@ -5,12 +5,15 @@ import 'login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
+
+
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
   @override
   State<SignUp> createState() => _SignUpState();
 }
+
 
 class _SignUpState extends State<SignUp> {
   final TextEditingController _name=TextEditingController();
@@ -114,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                               if(_name.text!=''&&_email.text!=''&&_password.text!=''&&_confirmpassword.text!=''){
                                 try {
                                   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                                    email: _email.text,
+                                    email: _email.text.toLowerCase().trim(),
                                     password: _password.text,
                                   ).then((value) {
                                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
