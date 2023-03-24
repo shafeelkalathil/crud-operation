@@ -121,7 +121,7 @@ class _SignUpState extends State<SignUp> {
                                     password: _password.text,
                                   ).then((value) {
                                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-                                      return Login(pswd: '', phone: '');
+                                        return Login(pswd: '', phone: '');
                                     },));
                                   } );
                                 } on FirebaseAuthException catch (e) {

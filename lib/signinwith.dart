@@ -1,6 +1,7 @@
 
 import 'package:crud_operation/home.dart';
 import 'package:crud_operation/login.dart';
+import 'package:crud_operation/phone/registerphone.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -15,7 +16,7 @@ class SignInWith extends StatefulWidget {
 }
 
 
-final GoogleSignIn googleSignIn = GoogleSignIn();
+final GoogleSignIn  googleSignIn = GoogleSignIn();
 
 
 class _SignInWithState extends State<SignInWith> {
@@ -68,6 +69,28 @@ class _SignInWithState extends State<SignInWith> {
                       Text("SIGN IN WITH GOOGLE"),
                     ],
                   ),),
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width-100,
+                child: Card(
+                  child: TextButton(
+                    onPressed: ()  {
+                         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                           return RegisterPhone();
+                         },));
+                    },
+                    child: Row(
+                      children: [
+                        SizedBox(width: 60,),
+                         Icon(Icons.call),
+                        SizedBox(width: 10,),
+                        Text("SIGN IN WITH PHONE"),
+                      ],
+                    ),),
                 ),
               ),
             ),
