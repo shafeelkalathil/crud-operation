@@ -42,6 +42,8 @@ dependencies:
   google_sign_in: ^6.0.2
   pinput: ^2.2.31
   firebase_phone_auth_handler: ^1.0.8
+  otp_autofill: ^2.1.0
+  sms_autofill: ^2.3.0
 
 dev_dependencies:
   flutter_test:

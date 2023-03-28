@@ -2,6 +2,7 @@ import 'package:crud_operation/home.dart';
 import 'package:crud_operation/phone/registerphone.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class Otp extends StatefulWidget {
   final String verificationId;
@@ -30,6 +31,8 @@ class _OtpState extends State<Otp> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +40,21 @@ class _OtpState extends State<Otp> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextFormField(
-              controller: _otpController,
+            PinFieldAutoFill(
+              codeLength: 4,
+              autoFocus: true,
+              decoration: UnderlineDecoration(
+                lineHeight: 2,
+                lineStrokeCap: StrokeCap.square,
+                bgColorBuilder: PinListenColorBuilder(
+                    Colors.green.shade200, Colors.grey.shade200),
+                colorBuilder: const FixedColorBuilder(Colors.transparent),
+              ),
             ),
+            // TextFormField(
+            //   controller: _otpController,
+            //   autofillHints: [ AutofillHints.oneTimeCode ],
+            // ),
             SizedBox(height: 10,),
             Container(
               width: MediaQuery.of(context).size.width-100,

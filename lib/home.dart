@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
                         return SignInWith();
                       },));
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignInWith(),));
+
                     }, child: Container(
                         width: 100,
                         height: 50,

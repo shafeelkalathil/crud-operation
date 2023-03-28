@@ -1,8 +1,11 @@
 import 'package:crud_operation/phone/otp.dart';
+import 'package:crud_operation/phone/smsverification.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+
 final FirebaseAuth _auth = FirebaseAuth.instance;
+
 
 class RegisterPhone extends StatefulWidget {
   const RegisterPhone({Key? key}) : super(key: key);
@@ -18,7 +21,7 @@ Future<void> _sendVerificationCode(BuildContext context, String phoneNumber) asy
     codeSent: (String verificationId, int? resendToken) {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => Otp(verificationId: verificationId),
+          builder: (context) => SmsVerificationPage(verificationId: verificationId, phone: phoneNumber,),
         ),
       );
     },
@@ -45,6 +48,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
             TextFormField(
                controller: phone,
               keyboardType: TextInputType.phone,
+
             ),
             SizedBox(height: 10,),
             Container(
